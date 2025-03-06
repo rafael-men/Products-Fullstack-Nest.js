@@ -1,13 +1,15 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { error } from 'console';
 import { Model } from 'mongoose';
-import { CreateCategoryDto } from 'src/dto/create-category.dto';
-import { Category } from 'src/models/Category/category.schema';
+import { CreateCategoryDto } from '../../dto/create-category.dto';
+import { Category } from '../../models/Category/category.schema';
+import {Product} from '../../models/Product/product.schema';
 
 @Injectable()
 export class CategoryService {
-    constructor(@InjectModel(Category.name) private categoryModel: Model<Category>) {}
+    constructor(@InjectModel(Category.name) private categoryModel: Model<Category>,@InjectModel(Product.name) private productModel: Model<Product>,) {}
+    
 
     async saveCategory(createCategoryDto:CreateCategoryDto):Promise<Category> {
         try {
@@ -55,15 +57,14 @@ export class CategoryService {
     }
 
     async deleteCategory(id:string):Promise<Category> {
-        try {
             const deleted = await this.categoryModel.findByIdAndDelete(id).exec();
+            const check = await this.productModel.find({categoryIds:id}).exec();
             if(!deleted) {
                 throw new NotFoundException('Categoria não encontrada.');
             }
+            if(check.length > 0) {
+                throw new BadRequestException('Impossível deletar categoria que possua produtos associados');
+            }
             return deleted;
-        }
-        catch(err) {
-            throw new error('Erro ao buscar a categoria.',err);
-        }
     }
  }
