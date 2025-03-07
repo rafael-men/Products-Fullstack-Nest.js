@@ -1,9 +1,10 @@
 
 FROM node:18 AS builder
 WORKDIR /app
-COPY Products-Fullstack-Nest.js/backend/package*.json ./
+COPY package*.json ./
 RUN npm install
-COPY Products-Fullstack-Nest.js/backend ./
+COPY . ./
+
 
 
 RUN npm run build
@@ -17,4 +18,4 @@ COPY --from=builder /app/dist ./dist
 EXPOSE 3000
 
 # Comando para iniciar a API
-CMD ["nest", "start"]
+CMD ["node", "dist/main.js"]

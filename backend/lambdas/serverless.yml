@@ -1,0 +1,38 @@
+service: products-lambda
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  timeout: 30
+
+functions:
+  processSalesReport:
+    handler: functions/processSalesReport.handler
+    events:
+      - http:
+          path: sales/report
+          method: get
+      - schedule:
+          rate: rate(1 hour)  
+          enabled: false
+
+  sendNotification:
+    handler: functions/sendNotification.handler
+    events:
+      - http:
+          path: notifications/send
+          method: post
+      - httpApi:
+          path: notifications/send
+          method: post
+
+plugins:
+  - serverless-offline 
+
+resources:
+  Resources:
+    MyBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: my-products-bucket
