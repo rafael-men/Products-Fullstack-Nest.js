@@ -49,9 +49,8 @@ cd nome-do-repositorio
 ```
 
 ### Backend
-
-use os comandos 
-
+- altere todos os campos que fazem referência a url do banco de **"mongo"** para **"localhost"**
+- 
 ```bash
 cd backend
 npm i
@@ -82,9 +81,9 @@ cd lambdas
 serverless offline
 ```
 
-frontend iniciará no **localhost:5173** 
+- frontend iniciará no **localhost:5173** 
 
-backend iniciará no **localhost:3008**
+- backend iniciará no **localhost:3008**
 
 ## Funcionalidades Principais
 
