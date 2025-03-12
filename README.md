@@ -20,6 +20,7 @@ A aplicação foi projetada para ser executada localmente, utilizando Docker par
 - **Docker** e **Docker Compose** instalados na máquina.
 - **Node.js** (versão 16 ou superior) instalado.
 - **Serverless Framework** instalado globalmente (para a função Lambda).
+- **MongoDB** caso queira executar localmente.
 
 ## Como Executar o Projeto ( Docker )
 
