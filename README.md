@@ -57,6 +57,10 @@ cd backend
 npm i
 npm start
 ```
+
+```bash
+Executar o banco: mongod
+```
 ### Frontend 
 
 ```bash
