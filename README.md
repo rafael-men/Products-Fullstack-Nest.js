@@ -37,7 +37,6 @@ O projeto utiliza Docker Compose para subir os serviços necessários, incluindo
 Para iniciar os serviços, execute:
 
 ```bash
-Copy
 docker-compose up 
 ```
 
