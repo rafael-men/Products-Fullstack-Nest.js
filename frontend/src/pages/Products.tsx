@@ -25,7 +25,7 @@ const Products = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/products');
+                const response = await axios.get('http://localhost:3008/products');
                 setProducts(response.data);
             } catch (error) {
                 console.error("Erro ao carregar produtos", error);
@@ -40,7 +40,7 @@ const Products = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/category');
+                const response = await axios.get('http://localhost:3008/category');
                 setCategories(response.data);
             } catch (error) {
                 console.error("Erro ao carregar categorias", error);
@@ -50,18 +50,33 @@ const Products = () => {
         fetchCategories();
     }, []);
 
-
-
-
     const handleEdit = (id: string) => {
         navigate(`/edit-product/${id}`);
     };
-
 
     const handleCreateProduct = () => {
         navigate('/products/new');
     };
 
+    const handleDelete = async (id: string) => {
+        const confirmDelete = window.confirm("Tem certeza que deseja excluir este produto?");
+        if (!confirmDelete) return;
+
+        try {
+            const orderResponse = await axios.get(`http://localhost:3008/orders?productIds=${id}`);
+            if (orderResponse.data.length > 0) {
+                alert("Não é possível excluir o produto, pois ele está associado a um pedido.");
+                return;
+            }
+
+            await axios.delete(`http://localhost:3008/products/deletar/${id}`);
+            setProducts(products.filter(product => product._id !== id));
+            alert("Produto excluído com sucesso!");
+        } catch (error) {
+            console.error("Erro ao excluir produto", error);
+            alert("Erro ao excluir produto.");
+        }
+    };
 
     const getCategoryNames = (categoryIds: string[]) => {
         return categoryIds
@@ -69,8 +84,6 @@ const Products = () => {
             .filter((name) => name)
             .join(', ');
     };
-
-    
 
     return (
         <div className="container mx-auto p-4">
@@ -111,6 +124,7 @@ const Products = () => {
                                     Editar
                                 </button>
                                 <button
+                                    onClick={() => handleDelete(product._id)}
                                     className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-200"
                                 >
                                     Excluir

@@ -8,10 +8,10 @@ async function bootstrap() {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',  // Métodos permitidos
     allowedHeaders: 'Content-Type, Authorization',  // Cabeçalhos permitidos
   });
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 3008);
   console.log('------------N-E-S-T-J-S--------')
   console.log('-------------------------------')
-  console.log('Back-End Rodando na Porta 3000');
+  console.log('Back-End Rodando na Porta 3008');
   console.log('-------------------------------')
 }
 bootstrap();

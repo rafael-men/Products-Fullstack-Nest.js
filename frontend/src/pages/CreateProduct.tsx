@@ -14,7 +14,7 @@ const CreateProduct = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/category');
+                const response = await axios.get('http://localhost:3008/category');
                 const categoriesWithId = response.data.map((category: { _id: string, name: string }) => ({
                     id: category._id,  // Usando '_id' como 'id'
                     name: category.name
@@ -40,7 +40,7 @@ const CreateProduct = () => {
         };
     
         try {
-            await axios.post('http://localhost:3000/products/new', newProduct);
+            await axios.post('http://localhost:3008/products/new', newProduct);
             window.alert('Produto Criado com Sucesso.');
             navigate('/products');
         } catch (error) {
