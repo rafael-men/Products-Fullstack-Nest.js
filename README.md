@@ -72,7 +72,7 @@ npm run dev
 
 ```bash
 cd backend
-npm seed
+npm run seed
 ```
 ### Executar o serverless framework
 
