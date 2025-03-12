@@ -37,6 +37,9 @@ O projeto utiliza Docker Compose para subir os serviços necessários, incluindo
 Para iniciar os serviços, execute:
 
 ```bash
+cd backend
+npm run build
+cd ..
 docker-compose up 
 ```
 ## Como executar o projeto (localmente)
