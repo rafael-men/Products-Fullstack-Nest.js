@@ -49,8 +49,9 @@ cd nome-do-repositorio
 ```
 
 ### Backend
+
 - altere todos os campos que fazem referência a url do banco de **"mongo"** para **"localhost"**
-- 
+ 
 ```bash
 cd backend
 npm i
