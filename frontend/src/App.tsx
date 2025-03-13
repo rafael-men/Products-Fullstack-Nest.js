@@ -13,6 +13,7 @@ import CreateCategory from "./pages/CreateCategory";
 import EditCategory from "./pages/EditCategory";
 import CreateOrder from "./pages/CreateOrder";
 import EditOrder from "./pages/EditOrder";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -36,6 +37,7 @@ function App() {
               <Route path='/orders' element={<Order/>}/>
               <Route path='/orders/new' element={<CreateOrder/>}/>
               <Route path="/orders/edit-order/:id" element={<EditOrder/>}/>
+              <Route path="/dashboard" element={<Dashboard/>}/>
             </Routes>
           </main>
         </div>

@@ -31,6 +31,12 @@ const Home = () => {
         >
             Ver Pedidos
         </button>
+        <button
+            onClick={() => navigate('/dashboard')}
+            className="bg-blue-500 text-white py-3 px-6 rounded-xl hover:bg-blue-600 transition duration-200"
+        >
+            Dashboard
+        </button>
     </div>
 </div>
 

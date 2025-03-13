@@ -7,7 +7,7 @@ async function getSalesData() {
 
   try {
     await client.connect();
-    const database = client.db('teste_hub_xp');
+    const database = client.db('test');
     const ordersCollection = database.collection('orders'); 
 
 
