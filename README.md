@@ -34,7 +34,7 @@ cd nome-do-repositorio
 ##  Configuração do Ambiente Docker
 
 ### 2.1. Docker Compose
-O projeto utiliza Docker Compose para subir os serviços necessários incluindo a task do serverless framework, e a aplicação NestJS.
+O projeto utiliza Docker Compose para subir o serviço da aplicação NestJS.
 Para iniciar os serviços, execute:
 
 ```bash
@@ -43,6 +43,16 @@ npm run build
 cd ..
 docker compose up 
 ```
+
+Para executar o serverless framework pra gerar relatório de vendas
+
+```bash
+cd backend
+cd lambdas
+serverless offline
+```
+
+
 Para parar os contêineres 
 
 ```bash
