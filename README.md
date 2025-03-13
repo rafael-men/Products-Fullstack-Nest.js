@@ -34,15 +34,31 @@ cd nome-do-repositorio
 ##  Configuração do Ambiente Docker
 
 ### 2.1. Docker Compose
-O projeto utiliza Docker Compose para subir os serviços necessários, incluindo o MongoDB, A task do serverless framework, e a aplicação NestJS.
+O projeto utiliza Docker Compose para subir o serviço da aplicação NestJS.
 Para iniciar os serviços, execute:
 
 ```bash
 cd backend
 npm run build
 cd ..
-docker-compose up 
+docker compose up 
 ```
+
+Para executar o serverless framework pra gerar relatório de vendas
+
+```bash
+cd backend
+cd lambdas
+serverless offline
+```
+
+
+Para parar os contêineres 
+
+```bash
+docker compose down
+```
+
 ## Como executar o projeto (localmente)
 
 ### 1. Clone o Repositório
@@ -54,7 +70,6 @@ cd nome-do-repositorio
 
 ### Backend
 
-- altere todos os campos que fazem referência a url do banco de **"mongo"** para **"localhost"**
  
 ```bash
 cd backend
@@ -62,9 +77,6 @@ npm i
 npm start
 ```
 
-```bash
-Executar o banco: mongod
-```
 ### Frontend 
 
 ```bash
@@ -78,7 +90,7 @@ npm run dev
 cd backend
 npm run seed
 ```
-### Executar o serverless framework
+### Executar o serverless framework pra gerar relatório de vendas
 
 ```bash
 cd backend
