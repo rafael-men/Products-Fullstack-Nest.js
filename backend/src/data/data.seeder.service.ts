@@ -17,32 +17,24 @@ export class DataSeederService {
     await this.clearData();
 
     const categories = await this.categoryModel.insertMany([
-      { name: 'Electronics' },
-      { name: 'Clothing' },
-      { name: 'Home & Kitchen' },
+      { name: 'Eletrônicos' },
+      { name: 'Roupas' },
     ]);
 
     const products = await this.productModel.insertMany([
       {
-        name: 'Smartphone',
-        description: 'A high-end smartphone',
-        price: 999.99,
+        name: 'Iphone XS',
+        description: 'Um celular de nova geração',
+        price: 4500.99,
         categoryIds: [categories[0]._id], 
-        imageUrl: 'https://example.com/smartphone.jpg',
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_bbQld6weW92dE5eD10ZxSKMX_A4nNV9Dog&s',
       },
       {
-        name: 'Laptop',
-        description: 'A powerful laptop',
-        price: 1499.99,
+        name: 'Laptop Lenovo LOQ',
+        description: 'Um computador poderoso com rtx 4050',
+        price: 5099.99,
         categoryIds: [categories[0]._id], 
-        imageUrl: 'https://example.com/laptop.jpg',
-      },
-      {
-        name: 'T-Shirt',
-        description: 'A comfortable cotton t-shirt',
-        price: 19.99,
-        categoryIds: [categories[1]._id], 
-        imageUrl: 'https://example.com/tshirt.jpg',
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHJM9LcxFFq_j29qPQTWJcDVNdme8D0OjfBQ&s',
       },
     ]);
 
@@ -50,12 +42,7 @@ export class DataSeederService {
       {
         date: new Date(),
         productIds: [products[0]._id, products[1]._id], 
-        total: 2499.98,
-      },
-      {
-        date: new Date(),
-        productIds: [products[2]._id], 
-        total: 19.99,
+        total: 9600.98,
       },
     ]);
 

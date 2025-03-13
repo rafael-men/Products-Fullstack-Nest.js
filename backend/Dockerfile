@@ -15,7 +15,7 @@ RUN npm install --only=production
 COPY --from=builder /app/dist ./dist
 
 
-EXPOSE 3000
+EXPOSE 3008
 
 # Comando para iniciar a API
 CMD ["node", "dist/main.js"]

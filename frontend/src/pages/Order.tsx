@@ -39,7 +39,7 @@ const Order = () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await axios .get('http://localhost:3008/orders');
+            const response = await axios .get('http://localhost:3008/products');
             setProducts(response.data);
         }
         catch(err) {
@@ -58,6 +58,21 @@ const Order = () => {
   const handleCreate = () => {
     navigate('/orders/new');
   }
+
+  const handleDelete = async (id: string) => {
+    const confirmDelete = window.confirm("Tem certeza que deseja excluir este pedido?");
+    if (!confirmDelete) return;
+
+    try {
+      await axios.delete(`http://localhost:3008/orders/deletar/${id}`);
+      setOrders(orders.filter(order => order._id !== id));
+      alert("Pedido excluído com sucesso!");
+    } catch (error) {
+      console.error("Erro ao excluir pedido", error);
+      alert("Erro ao excluir pedido.");
+    }
+  }
+
 
   const getProductNames = (productIds:string[]) => {
     return productIds.map((id) => products.find((product) => product._id == id)?.name).filter((name)=> name).join(', ');
@@ -81,7 +96,7 @@ const Order = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {orders.map((order) => (
             <div key={order._id} className="border p-6 rounded-lg shadow-lg bg-white flex flex-col transition-transform transform hover:scale-105 hover:shadow-xl">
-              <h3 className="text-xl font-semibold mb-2 text-gray-800 text-center">Pedido #{order._id}</h3>
+              <h3 className="text-sm font-semibold mb-2 text-gray-800 text-center">Pedido #{order._id}</h3>
               <p className="text-gray-600 mb-2"><strong>Data:</strong> {new Date(order.date).toLocaleDateString()}</p>
               <p className="text-gray-600 mb-2"><strong>Produtos:</strong> {getProductNames(order.productIds)}</p>
               <p className="text-lg font-semibold text-gray-900">Total: R$ {order.total.toFixed(2)}</p>
@@ -91,6 +106,12 @@ const Order = () => {
                   className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
                 >
                   Editar
+                </button>
+                <button
+                  onClick={() => handleDelete(order._id)}
+                  className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-200"
+                >
+                  Excluir
                 </button>
               </div>
             </div>

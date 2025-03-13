@@ -1,8 +1,8 @@
 const { MongoClient } = require('mongodb');
 
-// Função para buscar dados de vendas no MongoDB
+
 async function getSalesData() {
-  const uri = 'mongodb://root:rootpassword@mongo:27017/test_hub_xp?authSource=admin'; 
+  const uri = 'mongodb://mongo:qWfUxFeMrtQxRtpHakAkVIWMxNsVGpLc@shinkansen.proxy.rlwy.net:52381'; 
   const client = new MongoClient(uri);
 
   try {

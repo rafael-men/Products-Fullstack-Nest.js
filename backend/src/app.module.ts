@@ -8,7 +8,7 @@ import { ConsoleModule } from 'nestjs-console';
 import { LambdaModule } from './modules/lambda.module';
 
 @Module({
-  imports: [ MongooseModule.forRoot('mongodb://root:rootpassword@mongo:27017/test_hub_xp?authSource=admin'),
+  imports: [ MongooseModule.forRoot('mongodb://mongo:qWfUxFeMrtQxRtpHakAkVIWMxNsVGpLc@shinkansen.proxy.rlwy.net:52381'),
     ProductModule,CategoryModule,OrderModule,ConsoleModule,DataSeederModule,LambdaModule
   ],
 })

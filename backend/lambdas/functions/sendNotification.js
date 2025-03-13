@@ -2,8 +2,8 @@ module.exports.handler = async (event) => {
     try {
       const { orderId } = JSON.parse(event.body);
   
-      // Lógica para enviar notificação
-      await sendNotification(orderId);  // Função fictícia para enviar notificação
+    
+      await sendNotification(orderId);  
   
       return {
         statusCode: 200,

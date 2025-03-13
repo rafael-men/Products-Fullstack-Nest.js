@@ -11,6 +11,8 @@ import Category from "./pages/Category";
 import Order from "./pages/Order";
 import CreateCategory from "./pages/CreateCategory";
 import EditCategory from "./pages/EditCategory";
+import CreateOrder from "./pages/CreateOrder";
+import EditOrder from "./pages/EditOrder";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -32,6 +34,8 @@ function App() {
               <Route path='/categories/new' element={<CreateCategory/>}/>
               <Route path='/edit-category/:id' element={<EditCategory/>}/>
               <Route path='/orders' element={<Order/>}/>
+              <Route path='/orders/new' element={<CreateOrder/>}/>
+              <Route path="/orders/edit-order/:id" element={<EditOrder/>}/>
             </Routes>
           </main>
         </div>

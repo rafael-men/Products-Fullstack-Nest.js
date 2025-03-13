@@ -8,7 +8,7 @@ services:
       - "3008:3008"
     environment:
       - NODE_ENV=production
-      - MONGO_URI=mongodb://root:rootpassword@mongo:27017/teste_hub_xp?authSource=admin
+      - MONGO_URI=mongodb://mongo:qWfUxFeMrtQxRtpHakAkVIWMxNsVGpLc@shinkansen.proxy.rlwy.net:52381
     volumes:
       - ./backend:/app
     depends_on:
@@ -28,20 +28,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=rootpassword
     networks:
       - my_network 
-
-  lambda-sales-report:
-    build:
-      context: ./backend/lambdas
-      dockerfile: Dockerfile
-    environment:
-      - MONGO_URI=mongodb://root:rootpassword@mongo:27017/teste_hub_xp?authSource=admin
-    ports:
-      - "3000:3000"  # porta para acessar a API Lambda localmente
-    depends_on:
-      - mongo
-    networks:
-      - my_network
-
+      
 networks:
   my_network:
     driver: bridge
