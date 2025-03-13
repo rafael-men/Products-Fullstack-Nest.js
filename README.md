@@ -1,4 +1,4 @@
-# Aplicação Full Stack Gerenciador de Produtos com Relatório de Vendas (NestJS, MongoDB, ReactJS, AWS, Serverless Framework)
+# Aplicação Full Stack Gerenciador de Produtos com Relatório de Vendas (NestJS, MongoDB, ReactJS, AWS Lambda, Serverless Framework)
 
 Este projeto consiste em uma aplicação Full Stack que integra diversas tecnologias modernas, como NestJS, MongoDB, ReactJS TSX, Serverless Framework e Docker. O objetivo é criar uma aplicação que gerencia produtos, categorias e pedidos, com funcionalidades de CRUD, análise de métricas de pedidos dos produtos cadastrados e geração de um relatório de vendas com simulação de lambda para a AWS através do serverless framework.
 
