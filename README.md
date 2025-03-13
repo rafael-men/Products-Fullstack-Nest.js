@@ -20,8 +20,9 @@ A aplicação foi projetada para ser executada localmente, utilizando Docker par
 - **Docker** e **Docker Compose** instalados na máquina.
 - **Node.js** (versão 16 ou superior) instalado.
 - **Serverless Framework** instalado globalmente (para a função Lambda).
+- **MongoDB** caso queira executar localmente.
 
-## Como Executar o Projeto
+## Como Executar o Projeto ( Docker )
 
 ### 1. Clone o Repositório
 
@@ -30,45 +31,89 @@ git clone https://github.com/seu-usuario/nome-do-repositorio.git
 cd nome-do-repositorio
 ```
 
-## 2. Configuração do Ambiente
+##  Configuração do Ambiente Docker
 
 ### 2.1. Docker Compose
 O projeto utiliza Docker Compose para subir os serviços necessários, incluindo o MongoDB, A task do serverless framework, e a aplicação NestJS.
 Para iniciar os serviços, execute:
 
 ```bash
-Copy
+cd backend
+npm run build
+cd ..
 docker-compose up 
 ```
+## Como executar o projeto (localmente)
 
-### 2.2 O frontend iniciará no localhost:5173 
+### 1. Clone o Repositório
 
-### 2.3 O backend iniciará no localhost:3008 
+```bash
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
+cd nome-do-repositorio
+```
+
+### Backend
+
+- altere todos os campos que fazem referência a url do banco de **"mongo"** para **"localhost"**
+ 
+```bash
+cd backend
+npm i
+npm start
+```
+
+```bash
+Executar o banco: mongod
+```
+### Frontend 
+
+```bash
+cd frontend
+npm i
+npm run dev
+```
+### Popular dados no banco 
+
+```bash
+cd backend
+npm run seed
+```
+### Executar o serverless framework
+
+```bash
+cd backend
+cd lambdas
+serverless offline
+```
+
+- frontend iniciará no **localhost:5173** 
+
+- backend iniciará no **localhost:3008**
 
 ## Funcionalidades Principais
 
 ### 1. Backend (NestJS)
 
-CRUD de Produtos: Criação, listagem, atualização e deleção de produtos.
+- CRUD de Produtos: Criação, listagem, atualização e deleção de produtos.
 
-CRUD de Categorias: Criação, listagem, atualização e deleção de categorias.
+- CRUD de Categorias: Criação, listagem, atualização e deleção de categorias.
 
-CRUD de Pedidos: Criação, listagem, atualização e deleção de pedidos.
+- CRUD de Pedidos: Criação, listagem, atualização e deleção de pedidos.
 
 ### 2. Frontend (ReactJS)
 
-Página de Produtos: Listagem, criação, edição e deleção de produtos, com upload de imagens para o S3.
+- Página de Produtos: Listagem, criação, edição e deleção de produtos, com upload de imagens para o S3.
 
-Página de Categorias: Listagem, criação, edição e deleção de categorias.
+- Página de Categorias: Listagem, criação, edição e deleção de categorias.
 
-Página de Pedidos: Listagem, criação, edição e deleção de pedidos.
+- Página de Pedidos: Listagem, criação, edição e deleção de pedidos.
 
-Dashboard de KPIs: Exibição de métricas sobre os pedidos, como quantidade total de pedidos, valor médio por pedido, receita total, etc.
+- Dashboard de KPIs: Exibição de métricas sobre os pedidos, como quantidade total de pedidos, valor médio por pedido, receita total, etc.
 
 ### 3. Função Lambda (Serverless Framework)
-Processamento em Segundo Plano: A função Lambda pode ser configurada para realizar tarefas em segundo plano, como processar relatórios de vendas ou enviar notificações quando um novo pedido é criado.
+- Processamento em Segundo Plano: A função Lambda pode ser configurada para realizar tarefas em segundo plano, como processar relatórios de vendas ou enviar notificações quando um novo pedido é criado.
 
 <hr>
 
-Este projeto foi desenvolvido com o objetivo de demonstrar habilidades em desenvolvimento Full Stack, utilizando tecnologias modernas e boas práticas de código. O projeto foi projetado para ser simples de executar, com todas as configurações necessárias fornecidas no repositório.
+Este projeto foi desenvolvido com o objetivo de demonstrar habilidades em desenvolvimento Full Stack, utilizando tecnologias modernas e boas práticas de código. Sendo o mesmo projetado para ser simples de executar, com todas as configurações necessárias fornecidas no repositório.
 
