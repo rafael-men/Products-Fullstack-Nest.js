@@ -54,7 +54,6 @@ cd nome-do-repositorio
 
 ### Backend
 
-- altere todos os campos que fazem referência a url do banco de **"mongo"** para **"localhost"**
  
 ```bash
 cd backend
@@ -62,9 +61,6 @@ npm i
 npm start
 ```
 
-```bash
-Executar o banco: mongod
-```
 ### Frontend 
 
 ```bash
@@ -78,7 +74,7 @@ npm run dev
 cd backend
 npm run seed
 ```
-### Executar o serverless framework
+### Executar o serverless framework pra gerar relatório de vendas
 
 ```bash
 cd backend
