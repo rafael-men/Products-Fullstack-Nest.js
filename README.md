@@ -1,10 +1,11 @@
 # Aplicação Full Stack Gerenciador de Produtos com Relatório de Vendas (NestJS, MongoDB, ReactJS, AWS, Serverless Framework)
 
-Este projeto consiste em uma aplicação Full Stack que integra diversas tecnologias modernas, como NestJS, MongoDB, ReactJS TSX, Serverless Framework e Docker. O objetivo é criar uma aplicação que gerencia produtos, categorias e pedidos, com funcionalidades de CRUD, análise de métricas de pedidos dos produtos cadastrados e geração de um relatório de vendas com simulação de lambda para a aws através do serverless framework.
+Este projeto consiste em uma aplicação Full Stack que integra diversas tecnologias modernas, como NestJS, MongoDB, ReactJS TSX, Serverless Framework e Docker. O objetivo é criar uma aplicação que gerencia produtos, categorias e pedidos, com funcionalidades de CRUD, análise de métricas de pedidos dos produtos cadastrados e geração de um relatório de vendas com simulação de lambda para a AWS através do serverless framework.
 
-A aplicação foi projetada para ser executada localmente, utilizando Docker para facilitar o setup e a execução dos serviços necessários.
+A aplicação foi projetada para ser executada localmente.
 
 ## Tecnologias Utilizadas
+
 - Backend: NestJS (TypeScript)
 
 - Banco de Dados: MongoDB (NoSQL)
@@ -13,50 +14,19 @@ A aplicação foi projetada para ser executada localmente, utilizando Docker par
 
 - AWS + Serverless Framework: Funções do Lambda
 
-- Docker: Para containerização e execução local dos serviços
 
 ## Requisitos
 
-- **Docker** e **Docker Compose** instalados na máquina.
 - **Node.js** (versão 16 ou superior) instalado.
 - **Serverless Framework** instalado globalmente (para a função Lambda).
-- **MongoDB** caso queira executar localmente.
+- **MongoDB** caso queira executar um banco localmente visto que o banco da aplicação é uma instância do Railway.
 
-## Como Executar o Projeto ( Docker )
 
 ### 1. Clone o Repositório
 
 ```bash
 git clone https://github.com/seu-usuario/nome-do-repositorio.git
 cd nome-do-repositorio
-```
-
-##  Configuração do Ambiente Docker
-
-### 2.1. Docker Compose
-O projeto utiliza Docker Compose para subir o serviço da aplicação NestJS.
-Para iniciar os serviços, execute:
-
-```bash
-cd backend
-npm run build
-cd ..
-docker compose up 
-```
-
-Para executar o serverless framework pra gerar relatório de vendas
-
-```bash
-cd backend
-cd lambdas
-serverless offline
-```
-
-
-Para parar os contêineres 
-
-```bash
-docker compose down
 ```
 
 ## Como executar o projeto (localmente)
@@ -120,7 +90,7 @@ serverless offline
 
 - Página de Pedidos: Listagem, criação, edição e deleção de pedidos.
 
-- Dashboard de KPIs: Exibição de métricas sobre os pedidos, como quantidade total de pedidos, valor médio por pedido, receita total, etc.
+- Dashboard de Vendas de Produtos: Exibição de métricas sobre os pedidos, como quantidade total de pedidos, receita total.
 
 ### 3. Função Lambda (Serverless Framework)
 - Processamento em Segundo Plano: A função Lambda pode ser configurada para realizar tarefas em segundo plano, como processar relatórios de vendas ou enviar notificações quando um novo pedido é criado.
