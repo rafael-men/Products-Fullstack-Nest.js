@@ -1,4 +1,4 @@
-# ERP Gerenciador de Produtos com Geração de Relatório de Vendas 
+# ERP de Produtos com Geração de Relatório de Vendas 
 
 Este projeto consiste em uma aplicação FullStack que integra diversas tecnologias modernas, como NestJS, MongoDB, ReactJS TSX, Serverless Framework e Docker. O objetivo é criar uma aplicação que gerencia produtos, categorias e pedidos, com funcionalidades de CRUD, análise de métricas de pedidos dos produtos cadastrados e geração de um relatório de vendas com simulação de lambda para a AWS através do serverless framework.
 
